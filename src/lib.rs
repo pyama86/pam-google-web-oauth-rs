@@ -313,6 +313,8 @@ fn save_file(
         serde_json::to_writer(&file, &cache)?;
     }
 
+    let _ = std::fs::set_permissions(user_file_path, PermissionsExt::from_mode(0o700));
+
     Ok(())
 }
 
