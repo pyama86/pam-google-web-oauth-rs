@@ -1,0 +1,11 @@
+FROM ubuntu:xenial
+MAINTAINER pyama86 <www.kazu.com@gmail.com>
+
+RUN apt-get -qqy update && \
+    apt-get install -qqy glibc-source build-essential checkinstall \
+                        bzip2 unzip debhelper dh-make devscripts cdbs libpam0g-dev git \
+                        libssl-dev
+RUN curl https://sh.rustup.rs -sSf | sh -s -- -y
+ENV PATH $PATH:/root/.cargo/bin
+ENV OPENSSL_LIB_DIR /usr/lib/x86_64-linux-gnu/
+ENV OPENSSL_INCLUDE_DIR /usr/include/openssl/

@@ -1,0 +1,42 @@
+version: '3'
+services:
+  centos8:
+    build:
+      context: .
+      dockerfile: dockerfiles/Dockerfile.centos8
+    working_dir: /opt/pam-google-web-oauth
+    volumes:
+      - .:/opt/pam-google-web-oauth
+    environment:
+      DIST: el8
+    command: make release_build
+  centos7:
+    build:
+      context: .
+      dockerfile: dockerfiles/Dockerfile.centos7
+    working_dir: /opt/pam-google-web-oauth
+    volumes:
+      - .:/opt/pam-google-web-oauth
+    environment:
+      DIST: el7
+    command: make release_build
+  ubuntu16:
+    build:
+      context: .
+      dockerfile: dockerfiles/Dockerfile.ubuntu16
+    working_dir: /opt/pam-google-web-oauth
+    volumes:
+      - .:/opt/pam-google-web-oauth
+    environment:
+      DIST: xenial
+    command: make release_build
+  ubuntu18:
+    build:
+      context: .
+      dockerfile: dockerfiles/Dockerfile.ubuntu18
+    working_dir: /opt/pam-google-web-oauth
+    volumes:
+      - .:/opt/pam-google-web-oauth
+    environment:
+      DIST: bionic
+    command: make release_build

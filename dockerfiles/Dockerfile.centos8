@@ -1,0 +1,8 @@
+FROM centos:8
+MAINTAINER pyama86 <www.kazu.com@gmail.com>
+
+ARG GO_VERSION
+
+RUN yum install -y epel-release rpmdevtools make clang glibc gcc git openssl-devel pam-devel
+RUN curl https://sh.rustup.rs -sSf | sh -s -- -y
+ENV PATH $PATH:/root/.cargo/bin

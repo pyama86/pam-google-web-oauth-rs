@@ -1,0 +1,18 @@
+FROM ubuntu:xenial
+RUN apt -qqy update && apt -qqy install openssh-server rsyslog libssl-dev vim
+RUN mkdir /var/run/sshd
+RUN echo 'root:test' | chpasswd
+
+ARG CLIENT_ID
+ARG CLIENT_SECRET
+COPY misc/sshd /etc/pam.d/sshd
+RUN sed -i "s/%CLIENT_ID%/$CLIENT_ID/g" /etc/pam.d/sshd
+RUN sed -i "s/%CLIENT_SECRET%/$CLIENT_SECRET/g" /etc/pam.d/sshd
+
+COPY misc/sshd_config /etc/ssh/sshd_config
+COPY misc/run_ssh /usr/local/bin/
+ENV NOTVISIBLE "in users profile"
+RUN echo "export VISIBLE=now" >> /etc/profile
+EXPOSE 22
+
+CMD ["/bin/bash", "/usr/local/bin/run_ssh"]

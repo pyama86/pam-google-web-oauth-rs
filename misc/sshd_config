@@ -1,0 +1,10 @@
+KbdInteractiveAuthentication yes
+PasswordAuthentication no
+X11Forwarding yes
+PrintMotd no
+Subsystem       sftp    /usr/lib/openssh/sftp-server
+PermitRootLogin yes
+PORT 22
+AuthenticationMethods publickey,keyboard-interactive
+LogLevel INFO
+UsePAM yes

@@ -1,0 +1,6 @@
+#!/bin/bash
+service rsyslog start
+tail -f /var/log/*log &
+
+ln -sn /opt/pam-google-web-oauth/target/release/libpam_google_web_oauth.so /lib/x86_64-linux-gnu/security/pam-google-web-oauth.so
+/usr/sbin/sshd -D

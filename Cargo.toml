@@ -1,0 +1,24 @@
+[package]
+name = "google-web-oauth-rs"
+version = "0.1.0"
+authors = ["pyama86 <pyama@pepabo.com>"]
+edition = "2018"
+
+[lib]
+name = "pam_google_web_oauth"
+crate-type = ["cdylib"]
+
+[dependencies]
+http = "0.1.21"
+oauth2 = "3.0"
+url = "2.1.1"
+serde = "1.0"
+serde_json = "1.0"
+anyhow = "1.0"
+failure = "0.1.5"
+pam = { git = "https://github.com/anowell/pam-rs", package = "pam" }
+reqwest = "0.9"
+thiserror="1.0"
+syslog = "5.0.0"
+log = "0.4.11"
+libc = "~0.1.5"
