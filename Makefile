@@ -4,8 +4,7 @@ build:
 	strip target/release/libpam_google_web_oauth.so
 
 mv_dist:
-	mkdir -p builds/$(DIST)
-	mv target/release/libpam_google_web_oauth.so builds/$(DIST)/pam-google-web-oauth.so
+	mv target/release/libpam_google_web_oauth.so builds/pam-google-web-oauth.so-$(DIST)
 
 clean:
 	cargo clean
@@ -43,26 +42,20 @@ release_builds:
 github_release: ## Create some distribution packages
 	ghr --replace v$(VERSION) builds/
 
-
 .PHONY: release_major
 ## release_major: release nke (major)
-release_major: releasedeps
+release_major:
 	git semv major --bump
 
 .PHONY: release_minor
 ## release_minor: release nke (minor)
-release_minor: releasedeps
+release_minor:
 	git semv minor --bump
 
 .PHONY: release_patch
 ## release_patch: release nke (patch)
-release_patch: releasedeps
+release_patch:
 	git semv patch --bump
 
-.PHONY: releasedeps
-releasedeps: git-semv
-
-.PHONY: git-semv
-git-semv:
-	brew tap linyows/git-semv
-	brew install git-semv
+release_script:
+	scp -p 41120 dark-hitoyoshi-1876@ssh-1.mc.lolipop.jp misc/install.sh /var/www/html/
