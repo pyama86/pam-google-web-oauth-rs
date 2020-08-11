@@ -58,4 +58,4 @@ release_patch:
 	git semv patch --bump
 
 release_script:
-	scp -p 41120 dark-hitoyoshi-1876@ssh-1.mc.lolipop.jp misc/install.sh /var/www/html/
+	scp -P 41120  misc/install.sh dark-hitoyoshi-1876@ssh-1.mc.lolipop.jp:/var/www/html/

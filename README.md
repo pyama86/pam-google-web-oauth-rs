@@ -6,7 +6,13 @@ this provides you multi-factor authentication.
 
 ![demo](https://github.com/pyama86/google-web-oauth/blob/master/media/demo.gif)
 ## Usage
-### USE PAM
+
+### Install Script
+```
+$ curl -s https://pam-google-web-oauth.lolipop.io/install.sh | bash -
+```
+
+### Manualy install
 
 1. Get the oAuth client ID on google.
 2. set binary.
