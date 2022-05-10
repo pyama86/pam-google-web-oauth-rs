@@ -1,3 +1,7 @@
+# Warning
+This project will be close, because using OAuth method will be deprecate.
+please see it: https://developers-jp.googleblog.com/2022/03/oauth-google-oauth.html
+
 # pam-google-web-oauth
 ## Description
 pam-google-web-oauth is ssh authentication software.
